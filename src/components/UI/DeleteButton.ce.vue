@@ -1,19 +1,31 @@
 <template>
   <button class="delete" type="button">
-    <svg width="23px" height="22px" viewBox="0 0 6.3499998 6.3499998">
-      <path
-        d="m 2.3808228,0.52929682 c -0.2885875,0 -0.5292969,0.24070947 -0.5292969,0.52929698 v 0.5292967 c 0,0.2885874 0.2407095,0.5292969 0.5292969,0.5292969 h 1.5878907 c 0.2885874,0 0.5292968,-0.2407095 0.5292968,-0.5292969 V 1.0585938 c 0,-0.28858751 -0.2407094,-0.52929699 -0.5292968,-0.52929698 z m 0,0.52929698 H 3.9687135 V 1.5878905 H 2.3808228 Z"
-        style="fill: #ff2876"
+    <svg
+      class="svg"
+      width="20px"
+      height="20px"
+      viewBox="0 0 64 64"
+    >
+      <polygon
+        fill="none"
+        stroke="#000000"
+        stroke-width="3"
+        stroke-miterlimit="10"
+        points="32,1 26,1 26,10 20,12 14,6 6,14 12,20 
+		10,26 1,26 1,38 10,38 12,44 6,50 14,58 20,52 26,54 26,63 32,63 38,63 38,54 44,52 50,58 58,50 52,44 54,38 63,38 63,26 54,26 
+		52,20 58,14 50,6 44,12 38,10 38,1 	"
       />
-      <path
-        d="M 1.2968383,1.5878905 A 0.26460978,0.26460978 0 0 0 1.0585571,1.8515624 V 5.5566406 A 0.26460978,0.26460978 0 0 0 1.3222289,5.8203124 H 5.0273071 A 0.26460978,0.26460978 0 0 0 5.290979,5.5566406 V 1.8515624 A 0.26460978,0.26460978 0 0 0 5.0273071,1.5878905 H 1.3222289 a 0.26460978,0.26460978 0 0 0 -0.025391,0 z M 1.587854,2.1171874 H 4.7616821 V 5.2910156 H 1.587854 Z"
-      />
-      <path
-        d="m 0.76754147,1.5878905 a 0.26495279,0.26495279 0 0 0 0.0253906,0.5292969 H 5.556604 a 0.26464845,0.26464845 0 1 0 0,-0.5292969 H 0.7929321 a 0.26460978,0.26460978 0 0 0 -0.0253906,0 z"
+      <circle
+        fill="none"
+        stroke="#000000"
+        stroke-width="3"
+        stroke-miterlimit="10"
+        cx="32"
+        cy="32"
+        r="6"
       />
     </svg>
   </button>
-  <p class="foo">Lorem, ipsum dolor.</p>
 </template>
 
 <script>
@@ -23,23 +35,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.foo {
-  color: tomato;
-}
 .delete {
+  display: flex;
+  align-items: center;
   padding: 0;
   border: none;
   cursor: pointer;
   background: transparent;
-  transition: fill 0.2s ease-in-out;
+  transition: transform 0.25s ease-in-out;
   &:hover {
-    color: #15e386;
-  }
-  &__svg {
-    fill: currentColor;
-  }
-  &:hover {
-    fill: #ff2876;
+    transform: rotate(22deg);
   }
 }
 </style>

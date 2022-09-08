@@ -1,35 +1,41 @@
 <template>
-  <div class="container">
-    <button class="btn btn-gear">x</button>
-    <delete-button />
-    <div class="wrapper">
-      <rename-button />
+  <div class="container widget">
+    <div class="widget-header">
+      &nbsp;
+      <delete-button />
     </div>
+    <weather-card />
+    <weather-card />
+    <weather-card />
   </div>
 </template>
 
 <script>
 import DeleteButton from "./components/UI/DeleteButton.ce.vue";
-import RenameButton from './components/UI/RenameButton.ce.vue';
+import WeatherCard from "./components/WeatherCard.ce.vue";
+
 export default {
   name: "App",
-  components: { DeleteButton, RenameButton },
+  components: { DeleteButton, WeatherCard },
 };
 </script>
 
 <style lang="scss">
 .container {
- width: 150px;
- height: 300px;
- background-color: #888;
-}
-.btn {
-  border: none;
-  outline: none;
-  // padding: 8px;
-  background-color: rgba(136, 136, 136, 0.3);
-  color: #fff;
+  position: relative;
+  max-width: 350px;
+  min-height: 300px;
+  padding: 10px;
   border-radius: 4px;
-  transition: all 0.25s ease;
+}
+.widget {
+  background: linear-gradient(to bottom, #91d0e5, rgba(135, 135, 135, 0.3));
+  &-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    // padding: 5px;
+    background-color: #ddfd;
+  }
 }
 </style>
