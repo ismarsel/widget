@@ -1,11 +1,6 @@
 <template>
-  <button class="delete" type="button">
-    <svg
-      class="svg"
-      width="20px"
-      height="20px"
-      viewBox="0 0 64 64"
-    >
+  <button class="gear-btn" type="button">
+    <svg class="svg" width="20px" height="20px" viewBox="0 0 64 64">
       <polygon
         fill="none"
         stroke="#000000"
@@ -30,12 +25,12 @@
 
 <script>
 export default {
-  name: "DeleteButton",
+  name: "GearButton",
 };
 </script>
 
 <style lang="scss" scoped>
-.delete {
+.gear-btn {
   display: flex;
   align-items: center;
   padding: 0;
@@ -44,7 +39,7 @@ export default {
   background: transparent;
   transition: transform 0.25s ease-in-out;
   &:hover {
-    transform: rotate(22deg);
+    transform: rotate(-22deg);
   }
 }
 </style>

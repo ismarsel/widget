@@ -28,29 +28,32 @@ export default {
 
 <style lang="scss" scoped>
 .wrapper {
+  width: 100%;
+  max-width: 320px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 10px 0;
-  background-color: antiquewhite;
+  margin: 15px;
+  background-color: rgba(14, 86, 69, 0.299);
+  border-radius: 4px;
 }
 .title {
-
+  padding: 10px 0;
 }
 .main-info {
-}
-.main-info__temperature {
-}
-.main-info__feels-like {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  &__feels-like p {
+    margin: 0;
+    text-align: center;
+  }
 }
 .detail-info {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  grid-template-columns: repeat(2, 1fr);
 }
-.pressure {
-}
-.humidity {
-}
-.wind-speed {
-}
-.visibility {
-}
+
 </style>
