@@ -1,6 +1,6 @@
 <template>
   <div>
-    <label for="location">Добавьте город</label>
+    <label for="location" class="label">Добавьте город</label>
     <div class="location">
       <input
         type="text"
@@ -37,12 +37,17 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.label {
+  padding-left: 5px;
+}
 .location {
   height: 30px;
   display: flex;
   align-items: center;
   padding: 5px 10px;
   background-color: rgba(19, 19, 35, 0.13);
+  border-radius: 4px;
+  box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
   &__input {
     border: none;
     outline: none;

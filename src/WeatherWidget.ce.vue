@@ -15,6 +15,8 @@
         :city="city"
         :index="index"
         @removeItem="removeItem(index)"
+        @onDrag="onDrag(index)"
+        @onDrop="onDrop(index)"
       />
     </keep-alive>
     <location-input
@@ -45,10 +47,11 @@ export default {
     return {
       isSetting: false,
       cities: [],
+      buff: [],
     };
   },
   mounted() {
-    this.cities = JSON.parse(localStorage.getItem('cities')) || [];
+    this.cities = JSON.parse(localStorage.getItem("cities")) || [];
     if (!this.cities.length) this.isSetting = true;
   },
   watch: {
@@ -56,7 +59,7 @@ export default {
       handler() {
         this.setStorage();
       },
-      deep:true
+      deep: true,
     },
   },
   computed: {
@@ -71,12 +74,19 @@ export default {
       this.cities.push(city);
     },
     removeItem(city) {
-      console.log(city);
       this.cities.splice(city, 1);
     },
     setStorage() {
-      localStorage.setItem('cities', JSON.stringify(this.cities))
-    }
+      localStorage.setItem("cities", JSON.stringify(this.cities));
+    },
+    onDrag(indx) {
+      this.buff.push(this.cities[indx], indx);
+    },
+    onDrop(indx) {
+      this.cities[this.buff[1]] = this.cities[indx];
+      this.cities[indx] = this.buff[0];
+      this.buff = [];
+    },
   },
 };
 </script>

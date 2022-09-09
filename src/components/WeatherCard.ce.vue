@@ -14,23 +14,23 @@
     <div class="detail-info">
       <span class="pressure">
         <img
-          src="../assets/weather-icons/weather-pressure.svg"
+          src="../assets/weather-icons/weather-pressure.png"
           alt="давление"
         />
         {{ weatherData.pressure }} мм рт.ст.</span
       >
       <span class="humidity">
-        <img src="../assets/weather-icons/weather-drop.svg" alt="влажность" />
+        <img src="../assets/weather-icons/weather-drop.png" alt="влажность" />
         {{ weatherData.humidity }} %</span
       >
       <span class="wind-speed">
-        <img src="../assets/weather-icons/weather-wind.svg" alt="ветер" />{{
+        <img src="../assets/weather-icons/weather-wind.png" alt="ветер" />{{
           weatherData.speed
         }}
         м/c</span
       >
       <span class="visibility">
-        <img src="../assets/weather-icons/weather-eye.svg" alt="видимость" />{{
+        <img src="../assets/weather-icons/weather-eye.png" alt="видимость" />{{
           visibility / 1000
         }}
         км</span
@@ -138,6 +138,8 @@ export default {
     justify-self: end;
   }
   img {
+    width: 18px;
+    height: 18px;
     padding-right: 7px;
   }
 }
