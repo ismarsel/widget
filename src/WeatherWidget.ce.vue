@@ -8,36 +8,81 @@
       </transition>
     </div>
     <keep-alive>
-      <component :is="weatherComponent" v-for="(city, index) in cities" :key="index" :city="city" />
+      <component
+        :is="weatherComponent"
+        v-for="(city, index) in cities"
+        :key="index"
+        :city="city"
+        :index="index"
+        @removeItem="removeItem(index)"
+      />
     </keep-alive>
+    <location-input
+      v-if="isSetting && cities.length < 4"
+      @addLocation="addLocation($event)"
+    />
   </div>
 </template>
 
 <script>
-import CloseButton from "./components/UI/CloseButton.ce.vue";
-import GearButton from "./components/UI/GearButton.ce.vue";
+import CloseButton from "./components/UI/Buttons/CloseButton.ce.vue";
+import GearButton from "./components/UI/Buttons/GearButton.ce.vue";
 
 import WeatherSettings from "./components/WeatherSettings.ce.vue";
 import WeatherCard from "./components/WeatherCard.ce.vue";
+import LocationInput from "./components/UI/LocationInput.ce.vue";
 
 export default {
   name: "App",
-  components: { WeatherSettings, WeatherCard, GearButton, CloseButton },
+  components: {
+    WeatherSettings,
+    WeatherCard,
+    GearButton,
+    CloseButton,
+    LocationInput,
+  },
   data() {
     return {
-      isSetting: true,
-      cities: ['Банког', 'Гонког', 'Сидней']
+      isSetting: false,
+      cities: [],
     };
+  },
+  mounted() {
+    this.cities = JSON.parse(localStorage.getItem('cities')) || [];
+    if (!this.cities.length) this.isSetting = true;
+  },
+  watch: {
+    cities: {
+      handler() {
+        this.setStorage();
+      },
+      deep:true
+    },
   },
   computed: {
     weatherComponent() {
       return this.isSetting ? "weather-settings" : "weather-card";
     },
   },
+  methods: {
+    addLocation(city) {
+      if (!city && city != " ") return;
+      city = city.charAt(0).toUpperCase() + city.slice(1);
+      this.cities.push(city);
+    },
+    removeItem(city) {
+      console.log(city);
+      this.cities.splice(city, 1);
+    },
+    setStorage() {
+      localStorage.setItem('cities', JSON.stringify(this.cities))
+    }
+  },
 };
 </script>
 
 <style lang="scss">
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700;900&display=swap");
 .container {
   position: relative;
   max-width: 700px;

@@ -2,17 +2,18 @@
   <div class="draggable-item">
     <move-button />
     <slot>Чикаго</slot>
-    <trash-button />
+    <trash-button @click="$emit('removeItem', $event)" />
   </div>
 </template>
 
 <script>
-import TrashButton from "./UI/TrashButton.ce.vue";
-import MoveButton from "./UI/MoveButton.ce.vue";
+import TrashButton from "./UI/Buttons/TrashButton.ce.vue";
+import MoveButton from "./UI/Buttons/MoveButton.ce.vue";
 
 export default {
   name: "DragItem",
   components: { TrashButton, MoveButton },
+  emits: ["removeItem"],
 };
 </script>
 
